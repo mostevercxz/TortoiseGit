@@ -237,7 +237,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 	if (CAppUtils::IsExcelFile(sFilePath))
 	{
 		// replace filename
-		destOpenFilename.Replace(sExt, L"converted.lua");
+		destOpenFilename.Replace(sExt, L"converted.csv");
 		if (!CAppUtils::ConvertExcel(sFilePath, destOpenFilename))
 		{
 			m_sErrorString = "Convert excel failed";

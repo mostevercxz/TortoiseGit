@@ -266,12 +266,6 @@
       </Command.LargeImages>
     </Command>
 
-	  <Command Name="cmdViewToLua" LabelTitle="tolua" Id="33003">
-		  <Command.LargeImages>
-			  <Image Source="ribbon/Collapse.bmp " />
-		  </Command.LargeImages>
-	  </Command>
-
     <Command Name="cmdViewLineDiffBar" LabelTitle="Line diff bar" Id="32853">
     </Command>
     <Command Name="cmdViewLocatorBar" LabelTitle="Locator bar" Id="32854">
@@ -467,7 +461,7 @@
             <ToggleButton CommandName="cmdViewIgnoreComments" />
           </Group>
 
-          <Group CommandName="cmdGroupView" SizeDefinition="SixButtons">
+          <Group CommandName="cmdGroupView" SizeDefinition="FiveButtons">
             <DropDownButton CommandName="cmdViewBars">
               <CheckBox CommandName="cmdViewLineDiffBar"/>
               <CheckBox CommandName="cmdViewLocatorBar"/>
@@ -476,8 +470,7 @@
             <ToggleButton CommandName="cmdViewWrapLines" />
             <ToggleButton CommandName="cmdViewOneWayDiff" />
             <Button CommandName="cmdViewSwitchLeft" />
-            <ToggleButton CommandName="cmdViewCollapsed" />
-			<ToggleButton CommandName="cmdViewToLua" />
+            <ToggleButton CommandName="cmdViewCollapsed" />			
           </Group>
         </Tab>
       </Ribbon.Tabs>
