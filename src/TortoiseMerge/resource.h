@@ -1,6 +1,6 @@
-//{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ …˙≥…µƒ∞¸∫¨Œƒº˛°£
-// π© D:\github\TortoiseGit\src\Resources\TortoiseMergeENG.rc  π”√
+Ôªø//{{NO_DEPENDENCIES}}
+// Microsoft Visual C++ ÁîüÊàêÁöÑÂåÖÂê´Êñá‰ª∂„ÄÇ
+// ‰æõ D:\github\TortoiseGit\src\Resources\TortoiseMergeENG.rc ‰ΩøÁî®
 //
 #define IDR_MAINFRAME                   100
 #define IDP_OLE_INIT_FAILED             101
@@ -359,14 +359,13 @@
 #define ID_REGEXFILTER_REGEXFILTER      32993
 #define ID_EDIT_THREEWAY_ACTIONS        33001
 #define ID_REGEX_NO_FILTER              33002
-#define ID_VIEW_TOLUA                   33003
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        172
-#define _APS_NEXT_COMMAND_VALUE         33004
+#define _APS_NEXT_COMMAND_VALUE         33003
 #define _APS_NEXT_CONTROL_VALUE         1513
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
