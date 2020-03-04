@@ -13,11 +13,11 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Neutral resources
+// 非特定语言 resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
 LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
-#pragma code_page(1252)
+#pragma code_page(936)
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -27,18 +27,31 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDR_MAINFRAME           ICON                    "TortoiseMerge.ico"
+
 IDI_REMOVEDLINE         ICON                    "lineremoved.ico"
+
 IDI_ADDEDLINE           ICON                    "lineadded.ico"
+
 IDI_CONFLICTEDLINE      ICON                    "lineconflicted.ico"
+
 IDI_WHITESPACELINE      ICON                    "linewhitespace.ico"
+
 IDI_EQUALLINE           ICON                    "lineequal.ico"
+
 IDI_LINEENDINGCR        ICON                    "LineEndingCR.ico"
+
 IDI_LINEENDINGCRLF      ICON                    "LineEndingCRLF.ico"
+
 IDI_LINEENDINGLF        ICON                    "LineEndingLF.ico"
+
 IDI_CONFLICTEDIGNOREDLINE ICON                    "lineconflictedignored.ico"
+
 IDI_LINEEDITED          ICON                    "lineedited.ico"
+
 IDI_MOVEDLINE           ICON                    "moved.ico"
+
 IDI_LINEMARKED          ICON                    "linemarked.ico"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -105,7 +118,9 @@ END
 //
 
 IDB_LOGOFLIPPED         BITMAP                  "tortoisemerge_logoflipped.bmp"
+
 IDB_REGEX_FILTER        BITMAP                  "ribbon\\Filter16.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -114,18 +129,20 @@ IDB_REGEX_FILTER        BITMAP                  "ribbon\\Filter16.bmp"
 
 IDC_MARGINCURSOR        CURSOR                  "Margin.cur"
 
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // PNG
 //
 
 IDB_LOGO                PNG                     "ribbon\\TortoiseMerge.png"
-#endif    // Neutral resources
+
+#endif    // 非特定语言 resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (United States) resources
+// 英语(美国) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
@@ -439,6 +456,7 @@ END
 
 IDR_MAINFRAME           BITMAP                  "Toolbar.bmp"
 
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // Toolbar
@@ -604,6 +622,7 @@ BEGIN
     VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
     VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
     "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "E",            ID_EDIT_ENABLE,         VIRTKEY, CONTROL, NOINVERT
     "F",            ID_EDIT_FIND,           VIRTKEY, CONTROL, NOINVERT
     VK_F3,          ID_EDIT_FINDNEXT,       VIRTKEY, NOINVERT
     VK_F3,          ID_EDIT_FINDNEXTSTART,  VIRTKEY, CONTROL, NOINVERT
@@ -649,7 +668,7 @@ BEGIN
     "U",            ID_VIEW_SWITCHLEFT,     VIRTKEY, CONTROL, NOINVERT
     "T",            ID_VIEW_WHITESPACES,    VIRTKEY, CONTROL, NOINVERT
     "P",            ID_VIEW_WRAPLONGLINES,  VIRTKEY, CONTROL, NOINVERT
-    "E",            ID_EDIT_ENABLE,         VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_VIEW_TOLUA,          VIRTKEY, NOINVERT
 END
 
 
@@ -659,7 +678,9 @@ END
 //
 
 IDR_REGEXFILTERINI      CONFIG                  "RegexFilter.ini"
+
 IDR_IGNORECOMMENTSTXT   CONFIG                  "ignorecomments.txt"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1181,12 +1202,12 @@ BEGIN
     IDS_HEADER_DIFFRIGHTTOBASE "Show diff separately"
 END
 
-#endif    // English (United States) resources
+#endif    // 英语(美国) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Switzerland) resources
+// 德语(瑞士) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
@@ -1229,7 +1250,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // German (Switzerland) resources
+#endif    // 德语(瑞士) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ generated include file.
-// Used by d:\TortoiseGit\src\Resources\TortoiseMergeENG.rc
+// Microsoft Visual C++ 生成的包含文件。
+// 供 D:\github\TortoiseGit\src\Resources\TortoiseMergeENG.rc 使用
 //
 #define IDR_MAINFRAME                   100
 #define IDP_OLE_INIT_FAILED             101
@@ -57,7 +57,7 @@
 #define IDS_ERR_PATCH_NOADDFILELINE     1003
 #define IDC_VERSIONSTRING               1005
 #define IDC_YOURFILEEDIT                1006
-#define IDS_ERR_PATCH_UNKNOWNLINETYPE    1006
+#define IDS_ERR_PATCH_UNKNOWNLINETYPE   1006
 #define IDC_YOURFILEBROWSE              1007
 #define IDS_ERR_PATCH_CHUNKMISMATCH     1007
 #define IDC_DIFFFILEEDIT                1008
@@ -359,13 +359,14 @@
 #define ID_REGEXFILTER_REGEXFILTER      32993
 #define ID_EDIT_THREEWAY_ACTIONS        33001
 #define ID_REGEX_NO_FILTER              33002
+#define ID_VIEW_TOLUA                   33003
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        172
-#define _APS_NEXT_COMMAND_VALUE         33003
+#define _APS_NEXT_COMMAND_VALUE         33004
 #define _APS_NEXT_CONTROL_VALUE         1513
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

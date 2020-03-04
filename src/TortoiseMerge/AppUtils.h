@@ -1,4 +1,4 @@
-// TortoiseGitMerge - a Diff/Patch program
+﻿// TortoiseGitMerge - a Diff/Patch program
 
 // Copyright (C) 2006-2010, 2013-2014 - TortoiseSVN
 
@@ -49,4 +49,8 @@ public:
 
 	static bool HasClipboardFormat(UINT format);
 	static COLORREF IntenseColor(long scale, COLORREF col);
+
+	// convert excel to lua
+	static bool ConvertExcel(const CString &excelPath, const CString &destPath);
+	static bool IsExcelFile(const CString& filePath);
 };

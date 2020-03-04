@@ -35,6 +35,7 @@
 #include "Git.h"
 #include "CreateProcessHelper.h"
 #include "FormatMessageWrapper.h"
+#include "PathUtils.h"
 
 BOOL CAppUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSavePath, CSysProgressDlg* progDlg, HWND hWnd /*=nullptr*/)
 {
@@ -129,4 +130,38 @@ COLORREF CAppUtils::IntenseColor(long scale, COLORREF col)
 	long B = MulDiv(255-GetBValue(col),scale,255)+GetBValue(col);
 
 	return RGB(R, G, B);
+}
+
+bool CAppUtils::IsExcelFile(const CString& sFilePath)
+{
+	CString fileExtension = CPathUtils::GetFileExtFromPath(sFilePath);
+	if (fileExtension == L".xlsx" || fileExtension == L".xls" || fileExtension == L".xlsm")
+	{
+		return TRUE;
+	}
+
+	return FALSE;
+}
+
+bool CAppUtils::ConvertExcel(const CString &excelPath, const CString &destPath)
+{
+	CString sSCMPath = L"C:\\Users\\PC\\source\\repos\\csharpExcelReader\\bin\\Debug\\netcoreapp3.1\\csharpExcelReader.exe -s %1 -d %2";
+	sSCMPath.Replace(L"%1", excelPath);
+	sSCMPath.Replace(L"%2", destPath);
+	PROCESS_INFORMATION process;
+	if (!CCreateProcessHelper::CreateProcess(nullptr, sSCMPath.GetBuffer(), &process))
+	{
+		CFormatMessageWrapper errorDetails;
+		MessageBox(nullptr, errorDetails, L"TortoiseGitMerge", MB_OK | MB_ICONERROR);
+		return FALSE;
+	}
+	DWORD ret = 0;
+	do
+	{
+		ret = WaitForSingleObject(process.hProcess, 100);
+	} while ((ret == WAIT_TIMEOUT));
+	CloseHandle(process.hThread);
+	CloseHandle(process.hProcess);
+
+	return TRUE;
 }

@@ -24,6 +24,8 @@
 #include "FileTextLines.h"
 #include "FormatMessageWrapper.h"
 #include "SmartHandle.h"
+#include "AppUtils.h"
+#include "PathUtils.h"
 
 wchar_t inline WideCharSwap(wchar_t nValue)
 {
@@ -228,7 +230,22 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 		return TRUE;
 	}
 
-	CAutoFile hFile = CreateFile(sFilePath, GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_DELETE | FILE_SHARE_WRITE, nullptr, OPEN_EXISTING, 0, nullptr);
+	// If sFilePath is an excel file, convert it to text file and then open
+	CString destOpenFilename = sFilePath;
+	CString sFileName = CPathUtils::GetFileNameFromPath(sFilePath);
+	CString sExt = CPathUtils::GetFileExtFromPath(sFilePath);
+	if (CAppUtils::IsExcelFile(sFilePath))
+	{
+		// replace filename
+		destOpenFilename.Replace(sExt, L"converted.lua");
+		if (!CAppUtils::ConvertExcel(sFilePath, destOpenFilename))
+		{
+			m_sErrorString = "Convert excel failed";
+			return FALSE;
+		}
+	}
+
+	CAutoFile hFile = CreateFile(destOpenFilename, GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_DELETE | FILE_SHARE_WRITE, nullptr, OPEN_EXISTING, 0, nullptr);
 	if (!hFile)
 	{
 		SetErrorString();
@@ -284,10 +301,15 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 	// we may have to convert the file content - CString is UTF16LE
 	try
 	{
-		CBaseFilter* pFilter = nullptr;
+		CBaseFilter* pFilter = nullptr;		
 		switch (m_SaveParams.m_UnicodeType)
 		{
 		case BINARY:
+			// If the file is an excel file, return TRUE						
+			if (CAppUtils::IsExcelFile(sFilePath))
+			{
+				return TRUE;
+			}
 			m_sErrorString.Format(IDS_ERR_FILE_BINARY, static_cast<LPCTSTR>(sFilePath));
 			return FALSE;
 		case UTF8:

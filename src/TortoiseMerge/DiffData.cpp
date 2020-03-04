@@ -27,6 +27,7 @@
 #include "UnicodeUtils.h"
 #include "svn_dso.h"
 #include "MovedBlocks.h"
+#include "MessageBox.h"
 
 #pragma warning(push)
 #pragma warning(disable: 4702) // unreachable code
@@ -277,7 +278,7 @@ BOOL CDiffData::Load()
 	bBaseNeedConvert |= (IsBaseFileInUse() && !bBaseIsUtf8 && bIsUtf8);
 	if (bBaseNeedConvert)
 	{
-		sConvertedBaseFilename = CTempFiles::Instance().GetTempFilePathString();
+		sConvertedBaseFilename = CTempFiles::Instance().GetTempFilePathString();		
 		m_baseFile.SetConvertedFileName(sConvertedBaseFilename);
 		m_arBaseFile.Save(sConvertedBaseFilename, true, true, 0, bIgnoreCase, m_bBlame
 						, bIgnoreComments, m_CommentLineStart, m_CommentBlockStart, m_CommentBlockEnd
@@ -365,7 +366,7 @@ BOOL CDiffData::Load()
 
 bool
 CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilename, DWORD dwIgnoreWS, bool bIgnoreEOL, bool bIgnoreCase, bool bIgnoreComments, apr_pool_t* pool)
-{
+{	
 	svn_diff_file_options_t * options = CreateDiffFileOptions(dwIgnoreWS, bIgnoreEOL, pool);
 	// convert CString filenames (UTF-16 or ANSI) to UTF-8
 	CStringA sBaseFilenameUtf8 = CUnicodeUtils::GetUTF8(sBaseFilename);
