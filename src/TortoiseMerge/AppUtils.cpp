@@ -145,7 +145,8 @@ bool CAppUtils::IsExcelFile(const CString& sFilePath)
 
 bool CAppUtils::ConvertExcel(const CString &excelPath, const CString &destPath)
 {
-	CString sSCMPath = L"C:\\Users\\PC\\source\\repos\\csharpExcelReader\\bin\\Debug\\netcoreapp3.1\\csharpExcelReader.exe -s %1 -d %2";
+	CString appPath = CPathUtils::GetAppDirectory();
+	CString sSCMPath = appPath + "csharpExcelReader.exe -s %1 -d %2";
 	sSCMPath.Replace(L"%1", excelPath);
 	sSCMPath.Replace(L"%2", destPath);
 	PROCESS_INFORMATION process;
